@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 import { firestoreReducer } from "redux-firestore";
-import firebaseRed from "./FirebaseReduser";
+import firebaseReducer from "./FirebaseReduser";
 
 const rootReducer = combineReducers({
-    firebaseReducer: firebaseRed,
+    firebaseReducer: firebaseReducer,
     firestore: firestoreReducer
 });
 

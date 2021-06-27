@@ -4,8 +4,8 @@ import { Paper,Grid,Button, Box, Table, TableBody, TableCell, TableContainer,Tab
 import DeleteIcon from '@material-ui/icons/Delete';
 import UpdateIcon from '@material-ui/icons/Update';
 import VisibilityIcon from '@material-ui/icons/Visibility';
-import { firestoreConnect, useFirebase } from 'react-redux-firebase';
-import { connect, useSelector } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 
@@ -27,11 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
 const UserTable = (props) => {
     const classes = useStyles();
-    console.log(props,'CCCCCCCCCCCCCCCCCC')
-    const firebase = useFirebase()
-    const todos = useSelector((state) => state)
-    console.log(todos, "todosssssssssssssssss")
-
     return (
         <Grid container item
   justify="center"
@@ -87,7 +82,7 @@ const UserTable = (props) => {
 const mapStateToProps = (state) => {
   console.log('xxxxxxxxxxxx',state)
   return {
-    userData:state.firebaseReducer
+    userDatas:state.firebaseReducer
   }
 }
 

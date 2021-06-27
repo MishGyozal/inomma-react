@@ -10,11 +10,11 @@ let firebaseConfig = {
     storageBucket: "fir-user-f31f8.appspot.com",
     messagingSenderId: "620805808653",
     appId: "1:620805808653:web:b8801d5a57e8e055d5ab44",
-    measurementId: "G-XGMXFS7VG7",
-    useFirestoreForProfile: true
+    measurementId: "G-XGMXFS7VG7"
 };
 
 firebase.initializeApp(firebaseConfig);
 // firebase.analytics();
-firebase.firestore();
+firebase.firestore().settings({ timestampsInSnapshots: true })
+
 export default firebase;

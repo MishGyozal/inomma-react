@@ -3,20 +3,15 @@ import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import './App.css';
 import FirebaseContainer from './FirebaseContainer';
 import Store from './Store/Store';
-import firebase from 'firebase/app';
+import firebase from 'firebase';
 import firebaseConf from './firebaseFunc'
 
 const store = Store;
 window.store = store;
 
-const rrfConfig = {
-  userProfile : 'UserInfo',
-  useFirestoreForProfile: true 
-} 
-
 const rrfProps = {
   firebase,
-  config: rrfConfig,
+  config: firebaseConf,
   dispatch: store.dispatch
   }
 
