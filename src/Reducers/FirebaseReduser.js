@@ -1,59 +1,67 @@
-import firebase from '../firebaseFunc';
+import {
+  ADD_NEW_USER,
+  ADD_USER_ERROR,
+  DELL_USER,
+  DELL_USER_ERROR,
+  EDIT_PARAMETERS_SEND,
+  INPUT_TEXT_ADD,
+  INPUT_UPDATE,
+  UPDATE_USER,
+  UPDATE_USER_ERROR,
+} from "../ActionTypes/actionTypes";
+import { toast } from "react-toastify";
 
-let userData = [
-    {
-        id: "-Md6jvwh6Ihe1ujr4FIX",
-        FirstName: "Misha",
-        LastName: "Gyozalyan",
-        Age: "44"
-    },
-    {
-        id: "-Md6y-aebjeWqaGIaGL9",
-        FirstName: "fdgd",
-        LastName: "gfh",
-        Age: "33"
-    },
-    {
-        id: "-Md7C0xIsuRtjL2DwXhu",
-        FirstName: "fd",
-        LastName: "dds",
-        Age: "2"
-    }
-];
+const initialState = {
+  editUser: false,
+};
 
-    // const fireStore = firebase.database().ref('/UserInfo')
-    // fireStore.on('value',(response)=>{
-    //     const data = response.val();
-    //     let userInfo = [];
-    //     for(let id in data){
-    //         userInfo.push({
-    //             id:id,
-    //             FirstName: data[id].FirstName,
-    //             LastName: data[id].LastName,
-    //             Age: data[id].Age,
-    //         });
-
-    //     }
-
-    //     userData = userInfo
-    //     console.log(userData,'sssssssaaaaaaaaaaaaaaaa')
-
-
-    // })
-
-const firebaseRed = (state = userData, action) =>{
-    console.log('FFFFFFFFFFFFFF')
-    switch(action.type) {
-        case "ADD_NEW_USER":
-            console.log('CREATEEEEEEEEEEEE',action)
-            return state;
-        case "ADD_USER_ERROR":
-            console.log("ADD USER ERROR",action.err)
-            return state;
-        default:
-            return state;
-
-    }
-}
+const firebaseRed = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_NEW_USER:
+      toast.success("User successfully added");
+      return state;
+    case ADD_USER_ERROR:
+      toast.error("Error in user adding");
+      return state;
+    case DELL_USER:
+      toast.success("User successfully delete");
+      return state;
+    case DELL_USER_ERROR:
+      toast.error("Error in user deleting");
+      return state;
+    case UPDATE_USER:
+      toast.success("User successfully update");
+      return {
+        ...state,
+        editUser: false,
+      };
+    case UPDATE_USER_ERROR:
+      toast.error("Error in user updating");
+      return state;
+    case EDIT_PARAMETERS_SEND:
+      return {
+        ...state,
+        id: action.id,
+        FirstName: action.FirstName,
+        LastName: action.LastName,
+        Age: action.Age,
+        editUser: true,
+      };
+    case INPUT_UPDATE:
+      return {
+        ...state,
+        id: action.id,
+        FirstName: action.FirstName,
+        LastName: action.LastName,
+        Age: action.Age,
+        editUser: true,
+      };
+    case INPUT_TEXT_ADD:
+      toast.warn("Please fill in all shoulder lines");
+      return state;
+    default:
+      return state;
+  }
+};
 
 export default firebaseRed;

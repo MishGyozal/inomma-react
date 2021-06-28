@@ -1,0 +1,9 @@
+export const ADD_NEW_USER = "ADD_NEW_USER";
+export const ADD_USER_ERROR = "ADD_USER_ERROR";
+export const DELL_USER = "DELL_USER";
+export const DELL_USER_ERROR = "DELL_USER_ERROR";
+export const UPDATE_USER = "UPDATE_USER";
+export const UPDATE_USER_ERROR = "UPDATE_USER_ERROR";
+export const EDIT_PARAMETERS_SEND = "EDIT_PARAMETERS_SEND";
+export const INPUT_UPDATE = "INPUT_UPDATE";
+export const INPUT_TEXT_ADD = "INPUT_TEXT_ADD";
